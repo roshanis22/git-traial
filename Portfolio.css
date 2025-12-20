@@ -82,3 +82,22 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+
+
+        @media (min-width: 600px) {
+            nav {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+       
+        @media (min-width: 992px) {
+            main {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
