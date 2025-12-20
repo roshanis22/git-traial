@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: beige;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    background-color: chocolate;
+    text-align: right;
+    padding: 10px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sections & Articles */
+section,
+article {
+    background-color: antiquewhite;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 5px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: black;
+}
+
+/* Lists */
+ul {
+    margin-left: 20px;
+}
+
+/* Table (if you use later) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: burlywood;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
