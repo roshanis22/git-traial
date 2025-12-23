@@ -5,7 +5,7 @@
 // ----- Variable Declarations -----
 var studentName = "Roshani Sonar";   // var (old way)
 let course = "IT";                  // let (recommended)
-const college = "Tapi Diploma Engineering College"; // const (fixed value)
+const college = "vnsgu" // const (fixed value)
 
 // ----- Data Types Examples -----
 
