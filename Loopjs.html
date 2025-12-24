@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Tables</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            background-color: #eef2f7;   /* soft light gray-blue */
+            padding: 30px;
+            color: #1f2937;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 600;
+            color: #0f172a; /* dark navy */
+        }
+
+        h2 {
+            margin: 30px 0 15px;
+            font-size: 20px;
+            color: #1e3a8a; /* professional blue */
+            border-bottom: 2px solid #c7d2fe;
+            padding-bottom: 6px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            height: 260px;   /* SAME SIZE BOX */
+            border-left: 4px solid #2563eb; /* blue accent */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .rows {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        .rows p {
+            margin: 2px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Multiplication Tables (1 – 10)</h1>
+
+<h2>Using FOR Loop</h2>
+<div class="grid" id="forLoop"></div>
+
+<h2>Using FOR...OF Loop</h2>
+<div class="grid" id="forOfLoop"></div>
+
+<footer>Simple • Clean • Professional Design</footer>
+
+<script>
+    // ===== FOR LOOP =====
+    const forLoopDiv = document.getElementById("forLoop");
+
+    for (let i = 1; i <= 5; i++) {
+        let html = `<div class="card">
+                        <h3>Table of ${i}</h3>
+                        <div class="rows">`;
+
+        for (let j = 1; j <= 10; j++) {
+            html += `<p>${i} × ${j} = ${i * j}</p>`;
+        }
+
+        html += `</div></div>`;
+        forLoopDiv.innerHTML += html;
+    }
+
+    // ===== FOR...OF LOOP =====
+    const forOfDiv = document.getElementById("forOfLoop");
+    const numbers = [6, 7, 8, 9, 10];
+
+    for (const i of numbers) {
+        let html = `<div class="card">
+                        <h3>Table of ${i}</h3>
+                        <div class="rows">`;
+
+        for (const j of numbers) {
+            html += `<p>${i} × ${j} = ${i * j}</p>`;
+        }
+
+        html += `</div></div>`;
+        forOfDiv.innerHTML += html;
+    }
+</script>
+
+</body>
+</html>
