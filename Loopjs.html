@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: "Inter", "Segoe UI", Arial, sans-serif;
-            background-color: #eef2f7;   /* soft light gray-blue */
+            background-color: #eef2f7;
             padding: 30px;
             color: #1f2937;
         }
@@ -17,13 +17,13 @@
             text-align: center;
             margin-bottom: 35px;
             font-weight: 600;
-            color: #0f172a; /* dark navy */
+            color: #0f172a;
         }
 
         h2 {
             margin: 30px 0 15px;
             font-size: 20px;
-            color: #1e3a8a; /* professional blue */
+            color: #1e3a8a;
             border-bottom: 2px solid #c7d2fe;
             padding-bottom: 6px;
         }
@@ -38,8 +38,8 @@
             background-color: #ffffff;
             border-radius: 8px;
             padding: 16px;
-            height: 260px;   /* SAME SIZE BOX */
-            border-left: 4px solid #2563eb; /* blue accent */
+            height: 260px;
+            border-left: 4px solid #2563eb;
             box-shadow: 0 4px 8px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
@@ -81,10 +81,10 @@
 <h2>Using FOR...OF Loop</h2>
 <div class="grid" id="forOfLoop"></div>
 
-<footer>Simple • Clean • Professional Design</footer>
+<footer></footer>
 
 <script>
-    // ===== FOR LOOP =====
+    // ===== FOR LOOP (Tables 1–5) =====
     const forLoopDiv = document.getElementById("forLoop");
 
     for (let i = 1; i <= 5; i++) {
@@ -100,16 +100,17 @@
         forLoopDiv.innerHTML += html;
     }
 
-    // ===== FOR...OF LOOP =====
+    // ===== FOR...OF LOOP (Tables 6–10) =====
     const forOfDiv = document.getElementById("forOfLoop");
-    const numbers = [6, 7, 8, 9, 10];
+    const tables = [6, 7, 8, 9, 10];
+    const multipliers = [1,2,3,4,5,6,7,8,9,10];
 
-    for (const i of numbers) {
+    for (const i of tables) {
         let html = `<div class="card">
                         <h3>Table of ${i}</h3>
                         <div class="rows">`;
 
-        for (const j of numbers) {
+        for (const j of multipliers) {
             html += `<p>${i} × ${j} = ${i * j}</p>`;
         }
 
