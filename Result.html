@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Result System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #4facfe, #00f2fe);
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+
+    .container {
+        background: white;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        flex: 1;
+        margin: 5px;
+        padding: 15px;
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .avg { background: #6a11cb; }
+    .max { background: #11998e; }
+    .min { background: #e74c3c; }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background: #222;
+        color: white;
+    }
+
+    .pass { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+
+    .grade {
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .A { background: #2ecc71; }
+    .B { background: #3498db; }
+    .C { background: #f39c12; }
+    .F { background: #e74c3c; }
+</style>
+</head>
+<body>
+
+<h1>🎓 Student Grade Management System</h1>
+
+<div class="container">
+
+    <div class="summary">
+        <div class="card avg" id="avgBox"></div>
+        <div class="card max" id="maxBox"></div>
+        <div class="card min" id="minBox"></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+</div>
+
+<script>
+const students = [
+    { name: "Roshani", marks: 85 },
+    { name: "Hani", marks: 72 },
+    { name: "Sumita", marks: 90 },
+    { name: "Priya", marks: 60 },
+    { name: "Surbhi", marks: 45 }
+];
+
+const totalMarks = 100;
+
+// Average
+const avg = (students.reduce((s, x) => s + x.marks, 0) / students.length).toFixed(2);
+
+// Max & Min
+const marksArray = students.map(s => s.marks);
+const max = Math.max(...marksArray);
+const min = Math.min(...marksArray);
+
+// Process data
+const result = students
+    .map(s => {
+        const percentage = ((s.marks / totalMarks) * 100).toFixed(2);
+
+        let grade = "F";
+        if (percentage >= 85) grade = "A";
+        else if (percentage >= 70) grade = "B";
+        else if (percentage >= 50) grade = "C";
+
+        return { ...s, percentage, grade };
+    })
+    .sort((a, b) => b.marks - a.marks);
+
+// Show summary
+document.getElementById("avgBox").innerText = `Average\n${avg}%`;
+document.getElementById("maxBox").innerText = `Highest\n${max}`;
+document.getElementById("minBox").innerText = `Lowest\n${min}`;
+
+// Show table
+const table = document.getElementById("tableBody");
+
+result.forEach(s => {
+    table.innerHTML += `
+        <tr>
+            <td>${s.name}</td>
+            <td>${s.marks}</td>
+            <td>${s.percentage}%</td>
+            <td><span class="grade ${s.grade}">${s.grade}</span></td>
+            <td class="${s.marks >= 50 ? 'pass' : 'fail'}">
+                ${s.marks >= 50 ? "Pass" : "Fail"}
+            </td>
+        </tr>
+    `;
+});
+</script>
+
+</body>
+</html>
