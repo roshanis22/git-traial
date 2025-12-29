@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Catalog System</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .info-box {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .info-box p {
+        margin: 5px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th {
+        background: #2c3e50;
+        color: white;
+        padding: 12px;
+    }
+
+    td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .price {
+        color: #27ae60;
+        font-weight: bold;
+    }
+
+    .stock {
+        font-weight: bold;
+        color: #2980b9;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        color: #666;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<h1>🛒 Product Catalog Management System</h1>
+
+<div class="container">
+
+    <!-- Info Section -->
+    <div class="info-box" id="infoBox"></div>
+
+    <!-- Product Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price (₹)</th>
+                <th>Stock</th>
+                <th>Total Price (3 Qty)</th>
+            </tr>
+        </thead>
+        <tbody id="productTable"></tbody>
+    </table>
+
+    <div class="footer">
+        © 2025 Product Management System | JavaScript Project
+    </div>
+</div>
+
+<script>
+    // =============================
+    // Product Objects
+    // =============================
+    const product1 = {
+        name: "Laptop",
+        price: 50000,
+        stock: 10,
+
+        updateStock(qty) {
+            this.stock += qty;
+        },
+
+        calculateTotal(qty) {
+            return this.price * qty;
+        }
+    };
+
+    const product2 = {
+        name: "Mobile",
+        price: 20000,
+        stock: 15,
+
+        updateStock(qty) {
+            this.stock += qty;
+        },
+
+        calculateTotal(qty) {
+            return this.price * qty;
+        }
+    };
+
+    // =============================
+    // Destructuring
+    // =============================
+    const { name, price, stock } = product1;
+
+    // Update stock
+    product1.updateStock(-2);
+
+    // JSON Conversion
+    const jsonData = JSON.stringify(product1);
+
+    // =============================
+    // Display Info
+    // =============================
+    document.getElementById("infoBox").innerHTML = `
+        <p><b>Product:</b> ${name}</p>
+        <p><b>Price:</b> ₹${price}</p>
+        <p><b>Updated Stock:</b> ${product1.stock}</p>
+        <p><b>JSON Format:</b> ${jsonData}</p>
+    `;
+
+    // =============================
+    // Display Table
+    // =============================
+    const products = [product1, product2];
+    const table = document.getElementById("productTable");
+
+    products.forEach(p => {
+        table.innerHTML += `
+            <tr>
+                <td>${p.name}</td>
+                <td class="price">₹${p.price}</td>
+                <td class="stock">${p.stock}</td>
+                <td class="price">₹${p.calculateTotal(3)}</td>
+            </tr>
+        `;
+    });
+</script>
+
+</body>
+</html>
