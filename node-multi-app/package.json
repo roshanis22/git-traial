@@ -1,0 +1,12 @@
+{
+  "name": "node-multi-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "moment": "^2.30.1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "git-traial",
+  "version": "1.0.0",
+  "description": "Personal Introduction",
+  "main": "Basic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roshanis22/git-traial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roshanis22/git-traial/issues"
+  },
+  "homepage": "https://github.com/roshanis22/git-traial#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
